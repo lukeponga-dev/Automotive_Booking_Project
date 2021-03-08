@@ -28,6 +28,9 @@ namespace Automotive_Booking_Project
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            services.AddDbContext<Automotive_Booking_ProjectContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("Automotive_Booking_ProjectContext")));
+
     
 
         }

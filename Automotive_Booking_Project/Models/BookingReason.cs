@@ -5,11 +5,8 @@ using System.Threading.Tasks;
 
 namespace Automotive_Booking_Project.Models
 {
-    public class bookings
+    public class BookingReason
     {
         public int Id { get; set; }
-
-        public Users users { get; set; }
-        public BookingReason BookingReason { get; set; }
     }
 }
