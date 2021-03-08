@@ -17,5 +17,7 @@ namespace Automotive_Booking_Project.Data
         public DbSet<Automotive_Booking_Project.Models.Users> Users { get; set; }
 
         public DbSet<Automotive_Booking_Project.Models.bookings> bookings { get; set; }
+
+        public DbSet<Automotive_Booking_Project.Models.BookingReason> BookingReason { get; set; }
     }
 }
