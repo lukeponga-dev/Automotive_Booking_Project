@@ -54,7 +54,7 @@ namespace Automotive_Booking_Project.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id")] bookings bookings)
+        public async Task<IActionResult> Create([Bind("Id,User_Id,BookingReason_Id")] bookings bookings)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Automotive_Booking_Project.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id")] bookings bookings)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,User_Id,BookingReason_Id")] bookings bookings)
         {
             if (id != bookings.Id)
             {

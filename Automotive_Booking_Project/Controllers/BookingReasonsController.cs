@@ -34,7 +34,7 @@ namespace Automotive_Booking_Project.Controllers
             }
 
             var bookingReason = await _context.BookingReason
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.BookingReason_Id == id);
             if (bookingReason == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace Automotive_Booking_Project.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id")] BookingReason bookingReason)
+        public async Task<IActionResult> Create([Bind("BookingReason_Id,reason")] BookingReason bookingReason)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace Automotive_Booking_Project.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id")] BookingReason bookingReason)
+        public async Task<IActionResult> Edit(int id, [Bind("BookingReason_Id,reason")] BookingReason bookingReason)
         {
-            if (id != bookingReason.Id)
+            if (id != bookingReason.BookingReason_Id)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace Automotive_Booking_Project.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BookingReasonExists(bookingReason.Id))
+                    if (!BookingReasonExists(bookingReason.BookingReason_Id))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace Automotive_Booking_Project.Controllers
             }
 
             var bookingReason = await _context.BookingReason
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.BookingReason_Id == id);
             if (bookingReason == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace Automotive_Booking_Project.Controllers
 
         private bool BookingReasonExists(int id)
         {
-            return _context.BookingReason.Any(e => e.Id == id);
+            return _context.BookingReason.Any(e => e.BookingReason_Id == id);
         }
     }
 }

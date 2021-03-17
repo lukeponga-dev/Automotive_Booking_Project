@@ -34,7 +34,7 @@ namespace Automotive_Booking_Project.Controllers
             }
 
             var users = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.User_Id == id);
             if (users == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace Automotive_Booking_Project.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Telephone,email")] Users users)
+        public async Task<IActionResult> Create([Bind("User_Id,Name,Telephone,email")] Users users)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace Automotive_Booking_Project.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Telephone,email")] Users users)
+        public async Task<IActionResult> Edit(int id, [Bind("User_Id,Name,Telephone,email")] Users users)
         {
-            if (id != users.Id)
+            if (id != users.User_Id)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace Automotive_Booking_Project.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UsersExists(users.Id))
+                    if (!UsersExists(users.User_Id))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace Automotive_Booking_Project.Controllers
             }
 
             var users = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.User_Id == id);
             if (users == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace Automotive_Booking_Project.Controllers
 
         private bool UsersExists(int id)
         {
-            return _context.Users.Any(e => e.Id == id);
+            return _context.Users.Any(e => e.User_Id == id);
         }
     }
 }
