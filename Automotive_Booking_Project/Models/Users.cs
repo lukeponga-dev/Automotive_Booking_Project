@@ -8,12 +8,17 @@ namespace Automotive_Booking_Project.Models
 {
     public class Users
     {
+        //Primary key
         [Key]
         public int User_Id { get; set; }
 
+        //Users name
         public string Name { get; set; }
 
+        //users number
         public int Telephone { get; set; } = 0;
+
+        //Users email
         public string email { get; set; }
     }
 }

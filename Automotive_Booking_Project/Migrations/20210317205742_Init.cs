@@ -99,7 +99,7 @@ namespace Automotive_Booking_Project.Migrations
                 table: "bookings",
                 column: "UsersUser_Id");
 
-            var sqlFile = Path.Combine(".//Script", @"sript.sql");
+            var sqlFile = Path.Combine(".//Script", @"script.sql");
             migrationBuilder.Sql(File.ReadAllText(sqlFile));
         }
 

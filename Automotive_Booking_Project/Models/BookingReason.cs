@@ -8,9 +8,11 @@ namespace Automotive_Booking_Project.Models
 {
     public class BookingReason
     {
+       // Primary key
         [Key]
         public int BookingReason_Id { get; set; }
 
+        // Booking Reason
         public string reason { get; set; }
 
 

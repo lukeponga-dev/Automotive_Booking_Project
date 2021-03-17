@@ -16,24 +16,31 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!-- Nav Bar links-->
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
+                        <!--Home-->
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                        <!-- Users -->>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Users</a>
                         </li>
+                        <!--Reason-->
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="BookingReasons" asp-action="Index">Booking Reason</a>
                         </li>
+                        <!-- Bookings-->
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Bookings" asp-action="Index">Bookings</a>
                         </li>
+                        <!--Staff-->
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Staffs" asp-action="Index">Staff</a>
                         </li>
+                        <!--Privacy-->
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
