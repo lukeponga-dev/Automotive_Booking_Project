@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System.IO;
 
 namespace Automotive_Booking_Project.Migrations
 {
@@ -97,6 +98,9 @@ namespace Automotive_Booking_Project.Migrations
                 name: "IX_bookings_UsersUser_Id",
                 table: "bookings",
                 column: "UsersUser_Id");
+
+            var sqlFile = Path.Combine(".//Script", @"sript.sql");
+            migrationBuilder.Sql(File.ReadAllText(sqlFile));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
