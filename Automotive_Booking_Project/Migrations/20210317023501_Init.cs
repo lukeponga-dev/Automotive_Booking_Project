@@ -20,6 +20,19 @@ namespace Automotive_Booking_Project.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Staff",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Staff", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -77,6 +90,9 @@ namespace Automotive_Booking_Project.Migrations
         {
             migrationBuilder.DropTable(
                 name: "bookings");
+
+            migrationBuilder.DropTable(
+                name: "Staff");
 
             migrationBuilder.DropTable(
                 name: "BookingReason");

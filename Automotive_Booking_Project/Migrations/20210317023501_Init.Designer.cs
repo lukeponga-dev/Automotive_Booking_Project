@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Automotive_Booking_Project.Migrations
 {
     [DbContext(typeof(Automotive_Booking_ProjectContext))]
-    [Migration("20210317014929_Init")]
+    [Migration("20210317023501_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,6 +34,21 @@ namespace Automotive_Booking_Project.Migrations
                     b.HasKey("BookingReason_Id");
 
                     b.ToTable("BookingReason");
+                });
+
+            modelBuilder.Entity("Automotive_Booking_Project.Models.Staff", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Staff");
                 });
 
             modelBuilder.Entity("Automotive_Booking_Project.Models.Users", b =>

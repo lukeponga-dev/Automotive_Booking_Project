@@ -34,6 +34,21 @@ namespace Automotive_Booking_Project.Migrations
                     b.ToTable("BookingReason");
                 });
 
+            modelBuilder.Entity("Automotive_Booking_Project.Models.Staff", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Staff");
+                });
+
             modelBuilder.Entity("Automotive_Booking_Project.Models.Users", b =>
                 {
                     b.Property<int>("User_Id")
