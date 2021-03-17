@@ -56,7 +56,9 @@ namespace Automotive_Booking_Project.Migrations
                     User_Id = table.Column<int>(nullable: false),
                     UsersUser_Id = table.Column<int>(nullable: true),
                     BookingReason_Id = table.Column<int>(nullable: false),
-                    BookingReason_Id1 = table.Column<int>(nullable: true)
+                    BookingReason_Id1 = table.Column<int>(nullable: true),
+                    staff_Id = table.Column<int>(nullable: false),
+                    StaffId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -66,6 +68,12 @@ namespace Automotive_Booking_Project.Migrations
                         column: x => x.BookingReason_Id1,
                         principalTable: "BookingReason",
                         principalColumn: "BookingReason_Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_bookings_Staff_StaffId",
+                        column: x => x.StaffId,
+                        principalTable: "Staff",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_bookings_Users_UsersUser_Id",
@@ -81,6 +89,11 @@ namespace Automotive_Booking_Project.Migrations
                 column: "BookingReason_Id1");
 
             migrationBuilder.CreateIndex(
+                name: "IX_bookings_StaffId",
+                table: "bookings",
+                column: "StaffId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_bookings_UsersUser_Id",
                 table: "bookings",
                 column: "UsersUser_Id");
@@ -92,10 +105,10 @@ namespace Automotive_Booking_Project.Migrations
                 name: "bookings");
 
             migrationBuilder.DropTable(
-                name: "Staff");
+                name: "BookingReason");
 
             migrationBuilder.DropTable(
-                name: "BookingReason");
+                name: "Staff");
 
             migrationBuilder.DropTable(
                 name: "Users");

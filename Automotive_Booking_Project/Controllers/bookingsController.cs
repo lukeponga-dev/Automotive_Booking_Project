@@ -10,22 +10,22 @@ using Automotive_Booking_Project.Models;
 
 namespace Automotive_Booking_Project.Controllers
 {
-    public class bookingsController : Controller
+    public class BookingsController : Controller
     {
         private readonly Automotive_Booking_ProjectContext _context;
 
-        public bookingsController(Automotive_Booking_ProjectContext context)
+        public BookingsController(Automotive_Booking_ProjectContext context)
         {
             _context = context;
         }
 
-        // GET: bookings
+        // GET: Bookings
         public async Task<IActionResult> Index()
         {
             return View(await _context.bookings.ToListAsync());
         }
 
-        // GET: bookings/Details/5
+        // GET: Bookings/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,18 +43,18 @@ namespace Automotive_Booking_Project.Controllers
             return View(bookings);
         }
 
-        // GET: bookings/Create
+        // GET: Bookings/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: bookings/Create
+        // POST: Bookings/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,User_Id,BookingReason_Id")] bookings bookings)
+        public async Task<IActionResult> Create([Bind("Id,User_Id,BookingReason_Id,staff_Id")] bookings bookings)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace Automotive_Booking_Project.Controllers
             return View(bookings);
         }
 
-        // GET: bookings/Edit/5
+        // GET: Bookings/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,12 +81,12 @@ namespace Automotive_Booking_Project.Controllers
             return View(bookings);
         }
 
-        // POST: bookings/Edit/5
+        // POST: Bookings/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,User_Id,BookingReason_Id")] bookings bookings)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,User_Id,BookingReason_Id,staff_Id")] bookings bookings)
         {
             if (id != bookings.Id)
             {
@@ -116,7 +116,7 @@ namespace Automotive_Booking_Project.Controllers
             return View(bookings);
         }
 
-        // GET: bookings/Delete/5
+        // GET: Bookings/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,7 +134,7 @@ namespace Automotive_Booking_Project.Controllers
             return View(bookings);
         }
 
-        // POST: bookings/Delete/5
+        // POST: Bookings/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

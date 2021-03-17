@@ -83,15 +83,23 @@ namespace Automotive_Booking_Project.Migrations
                     b.Property<int?>("BookingReason_Id1")
                         .HasColumnType("int");
 
+                    b.Property<int?>("StaffId")
+                        .HasColumnType("int");
+
                     b.Property<int>("User_Id")
                         .HasColumnType("int");
 
                     b.Property<int?>("UsersUser_Id")
                         .HasColumnType("int");
 
+                    b.Property<int>("staff_Id")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("BookingReason_Id1");
+
+                    b.HasIndex("StaffId");
 
                     b.HasIndex("UsersUser_Id");
 
@@ -103,6 +111,10 @@ namespace Automotive_Booking_Project.Migrations
                     b.HasOne("Automotive_Booking_Project.Models.BookingReason", "BookingReason")
                         .WithMany()
                         .HasForeignKey("BookingReason_Id1");
+
+                    b.HasOne("Automotive_Booking_Project.Models.Staff", "Staff")
+                        .WithMany()
+                        .HasForeignKey("StaffId");
 
                     b.HasOne("Automotive_Booking_Project.Models.Users", "Users")
                         .WithMany()

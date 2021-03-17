@@ -16,5 +16,8 @@ namespace Automotive_Booking_Project.Models
 
         public int BookingReason_Id { get; set; }
         public BookingReason BookingReason { get; set; }
+
+        public int staff_Id { get; set; }
+        public Staff Staff { get; set; }
     }
 }
